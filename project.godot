@@ -105,6 +105,7 @@ _global_script_class_icons={
 [application]
 
 config/name="nakama"
+run/main_scene="res://src/Main/Control.tscn"
 config/icon="res://icon.png"
 
 [autoload]
