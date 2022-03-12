@@ -1,16 +1,33 @@
 extends Control
 
+var speed = 5;
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+#	if (Input.is_action_pressed("ui_left")):
+#		$Player.position.x -= speed
+#		$Player/AnimatedSprite.speed_scale = speed
+#		$Player/AnimatedSprite.play("run")
+#		$Player/AnimatedSprite.flip_h = true
+#	elif (Input.is_action_pressed("ui_right")):
+#		$Player.position.x += speed
+#		$Player/AnimatedSprite.speed_scale = speed
+#		$Player/AnimatedSprite.play("run")
+#		$Player/AnimatedSprite.flip_h = false
+#	else:
+#		$Player/AnimatedSprite.play("default")
+
+func _input(event):
+	if (Input.is_action_pressed("ui_left")):
+		$Player.position.x -= speed
+		$Player/AnimatedSprite.speed_scale = speed/2
+		$Player/AnimatedSprite.play("run")
+		$Player/AnimatedSprite.flip_h = true
+	elif (Input.is_action_pressed("ui_right")):
+		$Player.position.x += speed
+		$Player/AnimatedSprite.play("run")
+		$Player/AnimatedSprite.flip_h = false
+	else:
+		$Player/AnimatedSprite.play("default")
